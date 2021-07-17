@@ -17,7 +17,6 @@
  */
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using MCGalaxy.Bots;
 using MCGalaxy.SQL;
@@ -125,7 +124,7 @@ namespace MCGalaxy.Tasks {
             Database.ReadRows("Players", "ID,TimeSpent", null, ReadTimeSpent);
         }
         
-        static object ReadTimeSpent(IDataRecord record, object arg) {
+        static object ReadTimeSpent(ISqlRecord record, object arg) {
             playerCount++;
             try {
                 int id = record.GetInt32(0);
